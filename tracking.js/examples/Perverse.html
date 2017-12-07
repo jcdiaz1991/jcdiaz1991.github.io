@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pervese</title>
+  <!--<link rel="stylesheet" href="assets/demo.css">-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <script src="../build/tracking-min.js"></script>
+  <script src="../build/data/face-min.js"></script>
+  <script src="../build/data/eye-min.js"></script>
+  <script src="../build/data/mouth-min.js"></script>
+  <script src="index.js"></script>
+
+<style>
+  .rect, .eyes {
+    border: 2px solid #a64ceb;
+    left: -1000px;
+    position: absolute;
+    top: -1000px;
+  }
+
+  #img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -173px 0 0 -300px;
+  }
+
+  #imageGlasses{
+    max-width: 400px;
+    max-height:640px;
+  }
+</style>
+</head>
+<body>
+  <div class="demo-frame">
+    <div class="demo-container">
+      <!--<img id="img" height='400' src="assets/test.jpg" />-->
+      <img id="imageGlasses" src ="assets/test7.jpg" />
+
+    </div>
+  </div>
+<legend>File upload controls:</legend>
+<input id="upload" type="file"/>
+<div id="drop">
+  <div class="title">DRAG AND DROP ANY FILE HERE</div>
+</div>
+
+<legend id="filename">Result: </legend>
+<textarea id="result" readonly="readonly" cols="20" rows="2"></textarea>
+<br>
+<!--<img src ="assets/Selfie.png" id="imageGlasses" height='400'/>-->
+
+<a href="index.html">Home</a>
+<a href="next.html">Next</a>
+
+
+
+</body>
+</html>
