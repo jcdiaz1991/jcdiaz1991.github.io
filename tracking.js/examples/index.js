@@ -16,7 +16,7 @@ $(document).ready(function () {
   $("#drop").on("drop", OnGetFile);
   document.getElementById('imageGlasses').onload = function(){
     eyeCheck();
-  //glassesPosition();
+  glassesPosition();
   };
 
   function OnGetFile (e) {
