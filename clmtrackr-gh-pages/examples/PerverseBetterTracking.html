@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+    body {
+      font-family: 'Lato';
+      background-color: #f0f0f0;
+      margin: 0px auto;
+      max-width: 1150px;
+    }
+    #overlay {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      /*-webkit-transform: rotate(15deg);
+      transform: rotate(15deg);
+      -ms-transform: rotate(15deg);*/
+    }
+
+    #glasses {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      /*-webkit-transform: rotate(15deg);
+      transform: rotate(15deg);
+      -ms-transform: rotate(15deg);*/
+    }
+
+    #container {
+      position : relative;
+      width : 700px;
+      height : 500px;
+      /*margin : 0px auto;*/
+    }
+    #content {
+      margin-top : 70px;
+      margin-left : 100px;
+      margin-right : 100px;
+      max-width: 950px;
+    }
+    #convergence {
+      display : inline;
+    }
+    h2 {
+      font-weight : 400;
+    }
+    .btn {
+      font-family: 'Lato';
+      font-size: 16px;
+    }
+    .hide {
+      display : none;
+    }
+}
+  </style>
+  <title>Glasses</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="../build/clmtrackr.js"></script>
+
+  <script src="./js/libs/utils.js"></script>
+  <script src="./js/libs/dat.gui.min.js"></script>
+  <script src="./js/libs/Stats.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./styles/imgareaselect-default.css" />
+  <script src="./js/libs/jquery.min.js"></script>
+  <script src="./js/libs/jquery.imgareaselect.pack.js"></script>
+
+
+
+
+
+
+</head>
+<body>
+
+  <!--<div id="content">
+      <div id="container">
+        <canvas id="image" width="625" height="500"></canvas>
+        <canvas id="overlay" width="625" height="500"></canvas>
+    </div>
+        <input type="button" class="btn" value="start" onclick="animateClean()"></input>
+  			<input type="button" class="btn" value="manually select face" onclick="selectBox()"></input>
+  			<input type="file" class="btn" id="files" name="files[]" />
+
+</div>-->
+
+<div id="content">
+  <h2>Face tracking in images</h2>
+  <div id="container">
+    <canvas id="image" width="625" height="500"></canvas>
+    <canvas id="overlay" width="620" height="500"></canvas>
+    <canvas id="glasses" width="620" height="500"></canvas>
+
+  </div>
+  <br/>
+  <input type="button" class="btn" value="start" onclick="animateClean()"></input>
+  <input type="button" class="btn" value="manually select face" onclick="selectBox()"></input>
+  <input type="file" class="btn" id="files" name="files[]" />
+  <p id="convergence"></p>
+  <div id="text">
+    <p>This is an example of precise face-tracking in an image using the javascript library <a href="https://github.com/auduno/clmtrackr"><em>clmtrackr</em></a>. To try it out, simply click start.</p>
+    <span id="loadimagetext"><p>To try it out with your own image, choose a file above by clicking "choose file". If the tracking has problems, try selecting the face in the image manually by clicking "manually select face", and click and hold to drag a square around the face in the image.</p></span>
+  </div>
+  <p>The image is from the <a href="http://www-prima.inrialpes.fr/FGnet/data/01-TalkingFace/talking_face.html">FG-net Talking Face</a> project</p>
+  <a href="https://github.com/auduno/clmtrackr"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+
+<script src="indexP.js"></script>
+</body>
+
+</html>
