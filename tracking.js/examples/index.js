@@ -5,18 +5,18 @@ var widthOfRectangle;
 var positionOfTrack;
 //check is image is stored in local localStorage if not it sets default
 $(function pictureCheck(){
+  eyeCheck()
   if (localStorage.getItem("glassesScan") != null) {
   $("#imageGlasses").attr('src',localStorage.getItem('glassesScan'));
-  }
-  return;
-  })
+  };
+});
 
 $(document).ready(function () {
   $("#upload").on("change", OnGetFile);
   $("#drop").on("drop", OnGetFile);
   document.getElementById('imageGlasses').onload = function(){
-    eyeCheck();
-  glassesPosition();
+  eyeCheck();
+  //glassesPosition();
   };
 
   function OnGetFile (e) {
@@ -37,21 +37,17 @@ $(document).ready(function () {
     var reader = new FileReader();
     reader.readAsDataURL(file, "UTF-8");
     reader.onload = function (e) {
-      //displays the file size and pic URL results once the file has been uploaded
       $('.eyes').remove();
       $('.rect').remove();
+      //displays the file size and pic URL results once the file has been uploaded
       $("#filename").html("Result: '"+ file.name +"' ("+ e.target.result.length +" B)");
       $("#result").val(e.target.result);
       localStorage.setItem('glassesScan', e.target.result);
       $("#imageGlasses").attr('src',e.target.result);
       //once the image has loaded remove the previous scanned coordinates for the eyes and removes the glasses
       document.getElementById('imageGlasses').onload = function(){
-        //$('.eyes').remove();
-        //$('.rect').remove();
         //rechecks for the position of eyes once the a new picture has been reuploaded
         eyeCheck();
-        //supposed to position the glasses once it figures out where the eyes are located
-        glassesPosition(positionOfTrack);
       }
       };
     //if image failed to upload
@@ -68,7 +64,7 @@ function eyeCheck(){
   //var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
   //creates the tracker
   var tracker = new tracking.ObjectTracker(['eye']);
-  tracker.setStepSize(1.2);
+  tracker.setStepSize(1.0);
   tracking.track('#imageGlasses', tracker);
   //for each eye it has found place a rectangle around it.
   tracker.on('track', function(event) {
