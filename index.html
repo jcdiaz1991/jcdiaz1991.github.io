@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Glasses</title>
+  <!--<link rel="stylesheet" href="assets/demo.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="clmtrackr.min.js"></script>
+  <script src="load-image.all.min.js"></script>
+  <script src="model_pca_20_svm.js"></script>
+  <script src="utils.js"></script>
+
+
+
+  <!--<script src="index.js"></script>-->
+
+
+
+
+<style>
+  .rect, .eyes {
+    /*border: 2px solid #a64ceb;*/
+    left: -1000px;
+    position: absolute;
+    top: -1000px;
+  }
+
+  .hide {
+    display : none;
+  }
+
+  .demo-container{
+    position : relative;
+    width : 700px;
+    height : 500px;
+  }
+  #convergence {
+    display : inline;
+  }
+
+  #img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -173px 0 0 -300px;
+  }
+  #overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .buttom {
+    top: 0px;
+    left: 0px;
+    display: block;
+    margin: 0px auto;
+    color:black;
+    background-color:grey;
+  }
+
+  #imageGlasses{
+
+    max-height:800px;
+  }
+</style>
+</head>
+<body>
+  <div class="demo-frame">
+    <h1>Virtual Glasses Try On</h1>
+    <div class="demo-container">
+      <!--<img id="img" height='400' src="assets/test.jpg" />-->
+      <canvas id="imageGlasses" height="400" width="600" /></canvas>
+    <canvas id="overlay" height="400" width="600"></canvas>
+    <input class="buttom" type="button" value="Set Glasses" onclick="canvasSearchMethod()"></input>
+<input id="upload"class="buttom" type="file" value="Click to Upload Picture"/>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
