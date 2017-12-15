@@ -10,6 +10,11 @@
   <script src="model_pca_20_svm.js"></script>
   <script src="utils.js"></script>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 
 
   <!--<script src="index.js"></script>-->
@@ -18,14 +23,21 @@
 
 
 <style>
+body {
+  margin:0 auto;
+}
   .hide {
     display : none;
+  }
+  h1,h2{
+    text-align: center;
   }
 
   .demo-container{
     position : relative;
     width : 700px;
     height : 500px;
+    margin: 0 auto;
   }
   #convergence {
     display : inline;
@@ -37,10 +49,11 @@
     left: 50%;
     margin: -173px 0 0 -300px;
   }
-  #overlay {
+  #overlay, #imageGlasses {
     position: absolute;
     top: 0px;
     left: 0px;
+    max-height: 400px
   }
   .buttom {
     top: 0px;
@@ -50,24 +63,48 @@
     color:black;
     background-color:grey;
   }
-
-  #imageGlasses{
-
-    max-height:800px;
-  }
 </style>
 </head>
 <body>
-  <div class="demo-frame">
-    <h1>Virtual Glasses Try On</h1>
-    <div class="demo-container">
+  <div class="container">
+  <div class="demo-frame row"><div class="col-lg-12">
+    <h1 class="text-center">Virtual Glasses Try On</h1></div>
+  </div>
+    <div class="demo-container row">
       <!--<img id="img" height='400' src="assets/test.jpg" />-->
+      <div class="col-lg-12">
       <canvas id="imageGlasses" height="400" width="600" /></canvas>
     <canvas id="overlay" height="400" width="600"></canvas>
-    <input class="buttom" type="button" value="Set Glasses" onclick="canvasSearchMethod()"></input>
-<input id="upload"class="buttom" type="file" value="Click to Upload Picture"/>
   </div>
-
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+    <input class="buttom" type="button" value="Set Glasses" onclick="canvasSearchMethod()"></input>
+  </div>
+  <div class="col-md-6">
+<input id="upload"class="buttom" type="file" value="Click to Upload Picture"/>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+<h2> Choose your glasses:</h2>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <img class="img-fluid" id="eugene" src = "assets/eugene.jpg">
+</div>
+<div class="col-md-3">
+  <img class="img-fluid" id="sailor" src = "assets/sailor.jpg">
+</div>
+<div class="col-md-3">
+  <img class="img-fluid" id = "SAINTBARTS" src = "assets/SAINTBARTS.jpg">
+</div>
+<div class="col-md-3">
+  <img class="img-fluid" id = "sky" src = "assets/sky.jpg">
+</div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
