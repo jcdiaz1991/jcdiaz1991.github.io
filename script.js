@@ -105,6 +105,20 @@ function canvasSearchMethod(){
 function glassesPositionCanvas(){
   //Checks what eye is the left one and which one is the right eye
   pos = ctrack.getCurrentPosition();
+  var leftCoors = {
+	x: pos[19][0],
+	y: pos[19][1]};
+
+var rightCoors = {
+	x: pos[15][0],
+	y: pos[15][1]};
+
+// angle in radians
+var angleRadians = Math.atan2(rightCoors.y - leftCoors.y, rightCoors.x - leftCoors.x);
+
+// angle in degrees
+var angleDeg = Math.atan2(rightCoors.y - leftCoors.y, rightCoors.x - leftCoors.x) * 180 / Math.PI;
+console.log('degrees: '+angleDeg, 'radians: ' + angleRadians);
   var widthOfRectangle = pos[14][0] - pos[0][0];
   var heightOfRectangle = (pos[41][1]- pos[33][1])* 2;
   console.log("This is the width "+ widthOfRectangle);
@@ -118,6 +132,10 @@ function glassesPositionCanvas(){
   img.onload = function() {
 
   ctx.drawImage(img, pos[0][0],pos[19][1],widthOfRectangle, img.height * (widthOfRectangle/img.width));
+  var rotate = document.getElementById('overlay');
+  rotate.style.webkitTransform = "rotate(" +angleDeg+"deg)";
+  rotate.style.transform = "rotate(" +angleDeg+"deg)";
+  rotate.style.msTransform = "rotate(" +angleDeg+"deg)";
   //attach the glasses as a div element
   // var img = document.getElementById('overlay');
   //var eyes = document.createElement('img');
