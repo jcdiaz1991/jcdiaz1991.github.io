@@ -90,7 +90,7 @@ function canvasSearchMethod(){
 // if it didnt find a face
  document.addEventListener("clmtrackrNotFound", function(event) {
     ctrack.stop();
-    alert("The tracking had problems with finding a face in this image. Try selecting the face in the image manually.")
+    alert("The tracking had problems with finding a face in this image. Please try another image.")
   }, false);
   // if if found the face and eyes
   document.addEventListener("clmtrackrConverged", function(event){
