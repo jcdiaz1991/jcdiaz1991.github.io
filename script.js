@@ -85,7 +85,7 @@ function canvasSearchMethod(){
     drawRequest = requestAnimFrame(drawLoop);
     overlayCC.clearRect(0,0, overlay.width, overlay.height);
     if (ctrack.getCurrentPosition()) {
-      ctrack.draw(overlay);
+       ctrack.draw(overlay);
     }
   }
 // if it didnt find a face

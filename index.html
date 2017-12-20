@@ -63,6 +63,30 @@ body {
     color:black;
     background-color:grey;
   }
+
+  .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
 </style>
 </head>
 <body>
@@ -79,11 +103,13 @@ body {
   </div>
   <div class="row">
     <div class="col-md-6">
-    <input class="buttom" type="button" value="Set Glasses" onclick="canvasSearchMethod()"></input>
+    <input class="buttom btn-secondary btn btn-block" type="button" value="Set Glasses" onclick="canvasSearchMethod()"></input>
   </div>
-  <div class="col-md-6">
-<input id="upload"class="buttom" type="file" value="Click to Upload Picture"/>
+  <div class="col-md-6 upload-btn-wrapper">
+    <button class="btn-secondary btn btn-block ">Upload a file</button>
+  <input id="upload" type="file" name="myfile" />
 </div>
+<!--<input id="upload"class="buttom btn-block btn btn-secondary" type="file" value="Click to Upload Picture"/>-->
 </div>
 <div class="row">
   <div class="col-lg-12">
