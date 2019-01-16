@@ -19,7 +19,8 @@ $(function pictureCheck(){
   //if user has uploaded a pic already then it is displayed and img is drawed onto the canvas
   if (localStorage.getItem("glassesScan") !== null) {
     var savedImgLocal = localStorage.getItem('glassesScan');
-    //loadImage function is provided by clmTrackr
+    //loadImage function provided by JS library that analyzes exif IMAGE data to correctly draw it onto the canvas. When uploaded images especially on mobile then it would display it sideways
+    //https://github.com/blueimp/JavaScript-Load-Image#image-loading
     loadImage(
       savedImgLocal,
       function (img) {
@@ -73,7 +74,9 @@ $(function pictureCheck(){
     };
 
 //variables used in canvas to draw images
+//overlay is used to dray the tracking of the image
 var overlay = document.getElementById('overlay');
+//this is where the glasses get drawn onto the canvas
 var canvas =  document.getElementById('imageGlasses');
 var context = canvas.getContext('2d');
 var overlayCC = overlay.getContext('2d');;
@@ -110,8 +113,7 @@ function canvasSearchMethod(){
     ctrack.stop();
     alert("Ooops!! Our tracker had problems with finding a face in this image please try another image.")
   }, false);
-  //
-  if found the face and eyes
+  //if found the face and eyes
   document.addEventListener("clmtrackrConverged", function(event){
     //stop draw loops
     ctrack.stop();
@@ -132,7 +134,8 @@ function glassesPositionCanvas(){
 var rightCoors = {
 	x: pos[15][0],
 	y: pos[15][1]};
-// angle in degrees
+// angle of the slant between the two eyes in degrees
+//The Math.atan2() function returns the angle in the plane  between the positive x-axis and the ray from (0,0) to the point (x,y), for Math.atan2(y,x).
 var angleDeg = Math.atan2(rightCoors.y - leftCoors.y, rightCoors.x - leftCoors.x) * 180 / Math.PI;
   var widthOfRectangle = pos[14][0] - pos[0][0];
   var heightOfRectangle = (pos[41][1]- pos[33][1])* 2;
@@ -161,7 +164,7 @@ var angleDeg = Math.atan2(rightCoors.y - leftCoors.y, rightCoors.x - leftCoors.x
 }
 
   document.getElementById('eugene').onclick = function(e){
-    stunnas = "assets/EUGENE.png";
+    stunnas = "assets/eugene.png";
     /*if (pos){
       drawGlasses();
     }
